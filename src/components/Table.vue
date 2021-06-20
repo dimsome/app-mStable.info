@@ -1,6 +1,6 @@
 <template>
   <h2>hello</h2>
-  <div v-if="!tableData.length">Table is empty</div>
+  <div v-if="tableData.length == 0">Table is empty</div>
   <div v-else>
     <table class="styled-table">
       <thead>
@@ -36,8 +36,6 @@ export default {
   name: "Table",
   props: ["data"],
   setup(props) {
-    console.log(props.data[0].keys);
-
     return { tableData: props.data };
   },
 };
