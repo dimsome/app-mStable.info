@@ -24,7 +24,9 @@ export default {
 
     const fetchData = async () => {
       try {
-        let response = await fetch("http://127.0.0.1:4000/api/proposals");
+        let response = await fetch(
+          "https://hq-server-ju8ry.ondigitalocean.app/api/proposals"
+        );
         // console.log(response);
         if (!response.ok) throw Error("Data not fetched");
         data.value = await response.json();
