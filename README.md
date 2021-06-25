@@ -1,5 +1,12 @@
 # app
 
+## Upcoming Features
+- Graph over all votes on the main page
+- Table adjustments (less data)
+- Request to update the data (frontend post, backend run script)
+- Single Proposal View
+- Sorting
+
 ## Project setup
 ```
 npm install
