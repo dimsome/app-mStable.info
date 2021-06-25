@@ -1,5 +1,4 @@
 <template>
-  <h2>hello</h2>
   <div v-if="tableData.length == 0">Table is empty</div>
   <div v-else>
     <div class="table-container">
