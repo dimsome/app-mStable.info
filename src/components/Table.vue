@@ -10,7 +10,7 @@
             <th>Start</th>
             <th>End</th>
             <th>Num Voters</th>
-            <th>Unique Holders</th>
+            <th>Total Holders</th>
             <th>vMTA voted</th>
             <th>vMTA total</th>
             <th>State</th>
