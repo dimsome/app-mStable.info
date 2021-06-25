@@ -57,7 +57,7 @@ table {
 }
 td,
 th {
-  border: 1px solid rgba(23, 110, 222, 0.5);
+  border: 1px solid rgba(23, 110, 222, 0.75);
   border-top: none;
   padding: 10px;
   min-width: 200px;
@@ -70,7 +70,7 @@ thead th {
   position: sticky;
   top: -1px;
   z-index: 2;
-  background: rgb(23, 110, 222);
+  background: rgb(23, 110, 222, 1);
   border-top: none;
   border-bottom: none;
   color: #fff;
