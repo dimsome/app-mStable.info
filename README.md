@@ -6,6 +6,7 @@
 - Request to update the data (frontend post, backend run script)
 - Single Proposal View
 - Sorting
+- MTA weekly distribution calculation/table
 
 ## Project setup
 ```
