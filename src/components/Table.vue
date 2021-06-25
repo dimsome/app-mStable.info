@@ -1,5 +1,4 @@
 <template>
-  <h2>hello</h2>
   <div v-if="tableData.length == 0">Table is empty</div>
   <div v-else>
     <div class="table-container">
@@ -9,8 +8,10 @@
             <th>Title</th>
             <th>Start</th>
             <th>End</th>
+            <th>Voter Percent</th>
             <th>Num Voters</th>
             <th>Total Holders</th>
+            <th>vMTA Percent</th>
             <th>vMTA voted</th>
             <th>vMTA total</th>
             <th>State</th>
@@ -21,10 +22,12 @@
             <td>{{ data.title }}</td>
             <td>{{ data.start }}</td>
             <td>{{ data.end }}</td>
+            <td>{{ ((data.votersNum / data.votersTotal) * 100).toFixed(2) }}%</td>
             <td>{{ data.votersNum }}</td>
             <td>{{ data.votersTotal }}</td>
-            <td>{{ data.scoreNum }}</td>
-            <td>{{ data.scoreTotal }}</td>
+            <td>{{ ((data.scoreNum / data.scoreTotal) * 100).toFixed(2) }}%</td>
+            <td>{{ data.scoreNum.toFixed(2) }}</td>
+            <td>{{ data.scoreTotal.toFixed(2) }}</td>
             <td>{{ data.state }}</td>
           </tr>
         </tbody>
