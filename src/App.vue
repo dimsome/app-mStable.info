@@ -25,7 +25,7 @@ export default {
     const fetchData = async () => {
       try {
         let response = await fetch(
-          "https://hq-server-ju8ry.ondigitalocean.app/api/proposals"
+          "https://herderhq-7utdk.ondigitalocean.app/api/proposals"
         );
         // console.log(response);
         if (!response.ok) throw Error("Data not fetched");
