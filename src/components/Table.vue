@@ -56,13 +56,13 @@ export default {
       labels: Array(dataPoints),
       datasets: [
         {
-          label: "Percentage of vMTA voted",
+          label: "Percentage of vMTA holders voted",
           data: Array(dataPoints),
           color: "#0061E3",
           borderColor: "#0061E3",
         },
         {
-          label: "Percentage of vMTA holders voted",
+          label: "Percentage of vMTA score voted",
           data: Array(dataPoints),
           borderColor: "#FAB41F",
         },
