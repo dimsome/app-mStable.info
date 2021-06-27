@@ -6,29 +6,35 @@
         <thead>
           <tr>
             <th>Title</th>
-            <th>Start</th>
+            <!-- <th>Start</th> -->
             <th>End</th>
-            <th>Voter Percent</th>
             <th>Num Voters</th>
             <th>Total Holders</th>
-            <th>vMTA Percent</th>
+            <th>Voter Percent</th>
             <th>vMTA voted</th>
             <th>vMTA total</th>
-            <th>State</th>
+            <th>vMTA Percent</th>
+            <!-- <th>State</th> -->
           </tr>
         </thead>
         <tbody>
           <tr v-for="data in tableData" :key="data._id">
             <td>{{ data.title }}</td>
-            <td>{{ data.start }}</td>
+            <!-- <td>{{ data.start }}</td> -->
             <td>{{ data.end }}</td>
-            <td>{{ ((data.votersNum / data.votersTotal) * 100).toFixed(2) }}%</td>
+
             <td>{{ data.votersNum }}</td>
             <td>{{ data.votersTotal }}</td>
-            <td>{{ ((data.scoreNum / data.scoreTotal) * 100).toFixed(2) }}%</td>
+            <td class="col-highlight">
+              {{ ((data.votersNum / data.votersTotal) * 100).toFixed(2) }}%
+            </td>
+
             <td>{{ data.scoreNum.toFixed(2) }}</td>
             <td>{{ data.scoreTotal.toFixed(2) }}</td>
-            <td>{{ data.state }}</td>
+            <td class="col-highlight">
+              {{ ((data.scoreNum / data.scoreTotal) * 100).toFixed(2) }}%
+            </td>
+            <!-- <td>{{ data.state }}</td> -->
           </tr>
         </tbody>
       </table>
@@ -53,6 +59,9 @@ export default {
   height: 80vh;
   border: 1px solid rgba(23, 110, 222, 0.5);
   box-shadow: rgb(0 0 0 / 5%) 0px 4px 12px;
+}
+.col-highlight {
+  background: rgba(23, 110, 222, 0.05);
 }
 table {
   border-collapse: collapse;
@@ -82,6 +91,7 @@ thead th:first-child {
   left: -1px;
   z-index: 3;
   border-left: none;
+  text-align: left;
 }
 tbody tr > :first-child {
   position: -webkit-sticky;
@@ -89,6 +99,7 @@ tbody tr > :first-child {
   background: #f7f7f7;
   left: 0;
   border-left: none;
+  text-align: left;
 }
 tbody tr:last-child td {
   border-bottom: none;
