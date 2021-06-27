@@ -1,6 +1,9 @@
 <template>
   <div v-if="tableData.length == 0">Table is empty</div>
   <div v-else>
+    <div class="chart-container">
+      <LineChart :chartData="chartData" :height="550" />
+    </div>
     <div class="table-container">
       <table>
         <thead>
@@ -22,18 +25,12 @@
             <td>{{ data.title }}</td>
             <!-- <td>{{ data.start }}</td> -->
             <td>{{ data.end }}</td>
-
             <td>{{ data.votersNum }}</td>
             <td>{{ data.votersTotal }}</td>
-            <td class="col-highlight">
-              {{ ((data.votersNum / data.votersTotal) * 100).toFixed(2) }}%
-            </td>
-
-            <td>{{ data.scoreNum.toFixed(2) }}</td>
-            <td>{{ data.scoreTotal.toFixed(2) }}</td>
-            <td class="col-highlight">
-              {{ ((data.scoreNum / data.scoreTotal) * 100).toFixed(2) }}%
-            </td>
+            <td class="col-highlight">{{ data.percentNum }}%</td>
+            <td>{{ data.scoreNum }}</td>
+            <td>{{ data.scoreTotal }}</td>
+            <td class="col-highlight">{{ data.percentScore }}%</td>
             <!-- <td>{{ data.state }}</td> -->
           </tr>
         </tbody>
@@ -43,16 +40,72 @@
 </template>
 
 <script>
+import { onMounted, ref } from "@vue/runtime-core";
+import LineChart from "./LineChart";
 export default {
   name: "Table",
   props: ["data"],
+  components: {
+    LineChart,
+  },
   setup(props) {
-    return { tableData: props.data };
+    let dataPoints;
+
+    let tableData = ref([]);
+    let chartData = ref({
+      labels: Array(dataPoints),
+      datasets: [
+        {
+          label: "Percentage of vMTA voted",
+          data: Array(dataPoints),
+          color: "#0061E3",
+          borderColor: "#0061E3",
+        },
+        {
+          label: "Percentage of vMTA holders voted",
+          data: Array(dataPoints),
+          borderColor: "#FAB41F",
+        },
+      ],
+    });
+
+    let index = 1;
+
+    onMounted(() => {
+      dataPoints = props.data.length;
+      props.data.forEach((row) => {
+        let percentNum = ((row.votersNum / row.votersTotal) * 100).toFixed(2);
+        let percentScore = ((row.scoreNum / row.scoreTotal) * 100).toFixed(2);
+
+        tableData.value.push({
+          _id: row._id,
+          title: row.title,
+          end: row.end,
+          votersNum: row.votersNum,
+          votersTotal: row.votersTotal,
+          percentNum,
+          scoreNum: row.scoreNum.toFixed(2),
+          scoreTotal: row.scoreTotal.toFixed(2),
+          percentScore,
+        });
+
+        chartData.value.labels[dataPoints - index] = row.end;
+        chartData.value.datasets[0].data[dataPoints - index] = percentNum;
+        chartData.value.datasets[1].data[dataPoints - index] = percentScore;
+        index++;
+      });
+    });
+
+    return { tableData, chartData };
   },
 };
 </script>
 
 <style>
+.chart-container {
+  width: 100%;
+  height: 600px;
+}
 .table-container {
   position: relative;
   overflow: auto;
