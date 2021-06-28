@@ -102,7 +102,7 @@ export default {
 
 <style>
 .chart-container {
-  width: 100%;
+  width: calc(100vw - 40px);
   height: 600px;
 }
 .table-container {
@@ -111,6 +111,8 @@ export default {
   height: 80vh;
   border: 1px solid rgba(23, 110, 222, 0.5);
   box-shadow: rgb(0 0 0 / 5%) 0px 4px 12px;
+  width: calc(100vw - 80px);
+  margin: 0 auto;
 }
 .col-highlight {
   background: rgba(23, 110, 222, 0.05);
