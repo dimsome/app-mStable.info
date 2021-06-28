@@ -64,12 +64,14 @@ export default {
             data: [],
             borderColor: "#0061E3",
             backgroundColor: "rgba(0, 97, 227, 0.1)",
+            pointBackgroundColor: "#000",
           },
           {
             label: "Percentage of vMTA score voted",
             data: [],
             borderColor: "#FAB41F",
             backgroundColor: "rgba(250, 180, 31, 0.1)",
+            pointBackgroundColor: "#000",
           },
         ],
       };
