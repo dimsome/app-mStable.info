@@ -1,7 +1,7 @@
 # app
 
 ## Added Features
-- Chatjs all votes on the main page
+- Chartjs all votes on the main page
 
 
 ## Upcoming Features
