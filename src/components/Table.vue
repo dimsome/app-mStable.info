@@ -91,7 +91,6 @@ export default {
         chartData.value.labels[dataPoints - index] = row.end;
         chartData.value.datasets[0].data[dataPoints - index] = percentNum;
         chartData.value.datasets[1].data[dataPoints - index] = percentScore;
-        index++;
       });
     });
 
