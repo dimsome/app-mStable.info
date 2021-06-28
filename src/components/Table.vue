@@ -56,18 +56,18 @@ export default {
 
     onMounted(() => {
       dataPoints = props.data.length;
-      dataPoints = {
-        labels: Array(dataPoints),
+      chartData.value = {
+        labels: [],
         datasets: [
           {
             label: "Percentage of vMTA holders voted",
-            data: Array(dataPoints),
+            data: [],
             color: "#0061E3",
             borderColor: "#0061E3",
           },
           {
             label: "Percentage of vMTA score voted",
-            data: Array(dataPoints),
+            data: [],
             borderColor: "#FAB41F",
           },
         ],
