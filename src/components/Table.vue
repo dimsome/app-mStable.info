@@ -105,7 +105,7 @@ export default {
 
 <style>
 .chart-container {
-  width: calc(100vw - 40px);
+  width: calc(100vw - 30px);
   height: 600px;
 }
 .table-container {
