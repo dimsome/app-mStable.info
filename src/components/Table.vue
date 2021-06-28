@@ -123,6 +123,7 @@ export default {
   border: 1px solid rgba(150, 150, 150, 0.5);
   box-shadow: rgb(0 0 0 / 5%) 0px 4px 12px;
   width: calc(100vw - 80px);
+  max-width: 2400px;
   margin: 0 auto;
 }
 .voter-percent {
@@ -154,7 +155,7 @@ th {
 thead th {
   position: -webkit-sticky;
   position: sticky;
-  top: -1px;
+  top: 0;
   z-index: 2;
   background: rgb(150, 150, 150, 1);
   border-top: none;
@@ -162,7 +163,7 @@ thead th {
   color: #fff;
 }
 thead th:first-child {
-  left: -1px;
+  left: 0;
   z-index: 3;
   border-left: none;
   text-align: left;
@@ -177,5 +178,13 @@ tbody tr > :first-child {
 }
 tbody tr:last-child td {
   border-bottom: none;
+}
+table tr th:first-child,
+table tr td:first-child {
+  border-left: none;
+}
+table tr th:last-child,
+table tr td:last-child {
+  border-right: none;
 }
 </style>
