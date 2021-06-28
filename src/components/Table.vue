@@ -51,29 +51,28 @@ export default {
   setup(props) {
     let dataPoints;
 
-    let tableData = ref([]);
-    let chartData = ref({
-      labels: Array(dataPoints),
-      datasets: [
-        {
-          label: "Percentage of vMTA holders voted",
-          data: Array(dataPoints),
-          color: "#0061E3",
-          borderColor: "#0061E3",
-        },
-        {
-          label: "Percentage of vMTA score voted",
-          data: Array(dataPoints),
-          borderColor: "#FAB41F",
-        },
-      ],
-    });
-
-    let index = 1;
+    const tableData = ref([]);
+    const chartData = ref({});
 
     onMounted(() => {
       dataPoints = props.data.length;
-      props.data.forEach((row) => {
+      dataPoints = {
+        labels: Array(dataPoints),
+        datasets: [
+          {
+            label: "Percentage of vMTA holders voted",
+            data: Array(dataPoints - 1),
+            color: "#0061E3",
+            borderColor: "#0061E3",
+          },
+          {
+            label: "Percentage of vMTA score voted",
+            data: Array(dataPoints - 1),
+            borderColor: "#FAB41F",
+          },
+        ],
+      };
+      props.data.forEach((row, index) => {
         let percentNum = ((row.votersNum / row.votersTotal) * 100).toFixed(2);
         let percentScore = ((row.scoreNum / row.scoreTotal) * 100).toFixed(2);
 
