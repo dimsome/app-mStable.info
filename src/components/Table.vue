@@ -57,7 +57,7 @@ export default {
     onMounted(() => {
       dataPoints = props.data.length;
       dataPoints = {
-        labels: Array(dataPoints),
+        labels: Array(dataPoints - 1),
         datasets: [
           {
             label: "Percentage of vMTA holders voted",
