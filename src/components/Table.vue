@@ -55,7 +55,7 @@ export default {
     const chartData = ref({});
 
     onMounted(() => {
-      dataPoints = props.data.length;
+      dataPoints = props.data.length - 1;
       chartData.value = {
         labels: [],
         datasets: [
@@ -92,6 +92,7 @@ export default {
         chartData.value.datasets[0].data[dataPoints - index] = percentNum;
         chartData.value.datasets[1].data[dataPoints - index] = percentScore;
       });
+      console.log(chartData.value);
     });
 
     return { tableData, chartData };
