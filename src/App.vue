@@ -24,9 +24,7 @@ export default {
 
     const fetchData = async () => {
       try {
-        let response = await fetch(
-          "https://herderhq-7utdk.ondigitalocean.app/api/proposals"
-        );
+        let response = await fetch("https://herderhq-7utdk.ondigitalocean.app/api/proposals");
         // console.log(response);
         if (!response.ok) throw Error("Data not fetched");
         data.value = await response.json();
@@ -49,7 +47,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: rgb(37, 39, 45);
-  margin-top: 60px;
+  margin: 60px auto;
   background: #f8f5f2;
 }
 </style>
