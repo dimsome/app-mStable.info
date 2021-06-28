@@ -1,8 +1,8 @@
 # app
 
-## New Features
+## Added Features
 
-- Chartjs over all votes on the main page
+- Chartjs all votes on the main page
 
 ## Upcoming Features
 
