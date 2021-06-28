@@ -62,13 +62,14 @@ export default {
           {
             label: "Percentage of vMTA holders voted",
             data: [],
-            color: "#0061E3",
             borderColor: "#0061E3",
+            backgroundColor: "rgba(0, 97, 227, 0.1)",
           },
           {
             label: "Percentage of vMTA score voted",
             data: [],
             borderColor: "#FAB41F",
+            backgroundColor: "rgba(250, 180, 31, 0.1)",
           },
         ],
       };
