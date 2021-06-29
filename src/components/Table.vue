@@ -13,10 +13,10 @@
             <th>End</th>
             <th>Num Voters</th>
             <th>Total Holders</th>
-            <th>Voter Percent</th>
+            <th class="voter-percent">Voter Percent</th>
             <th>vMTA voted</th>
             <th>vMTA total</th>
-            <th>vMTA Percent</th>
+            <th class="vmta-percent">vMTA Percent</th>
             <!-- <th>State</th> -->
           </tr>
         </thead>
@@ -27,10 +27,10 @@
             <td>{{ data.end }}</td>
             <td>{{ data.votersNum }}</td>
             <td>{{ data.votersTotal }}</td>
-            <td class="col-highlight">{{ data.percentNum }}%</td>
+            <td class="voter-percent">{{ data.percentNum }}%</td>
             <td>{{ data.scoreNum }}</td>
             <td>{{ data.scoreTotal }}</td>
-            <td class="col-highlight">{{ data.percentScore }}%</td>
+            <td class="vmta-percent">{{ data.percentScore }}%</td>
             <!-- <td>{{ data.state }}</td> -->
           </tr>
         </tbody>
@@ -64,14 +64,22 @@ export default {
             data: [],
             borderColor: "#0061E3",
             backgroundColor: "rgba(0, 97, 227, 0.1)",
-            pointBackgroundColor: "#000",
+            pointBackgroundColor: "#0061E3",
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            pointHitRadius: 10,
+            tension: 0,
           },
           {
             label: "Percentage of vMTA score voted",
             data: [],
             borderColor: "#FAB41F",
             backgroundColor: "rgba(250, 180, 31, 0.1)",
-            pointBackgroundColor: "#000",
+            pointBackgroundColor: "#FAB41F",
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            pointHitRadius: 10,
+            tension: 0,
           },
         ],
       };
@@ -112,13 +120,23 @@ export default {
   position: relative;
   overflow: auto;
   height: 80vh;
-  border: 1px solid rgba(23, 110, 222, 0.5);
+  border: 1px solid rgba(150, 150, 150, 0.5);
   box-shadow: rgb(0 0 0 / 5%) 0px 4px 12px;
   width: calc(100vw - 80px);
+  max-width: 2400px;
   margin: 0 auto;
 }
-.col-highlight {
-  background: rgba(23, 110, 222, 0.05);
+.voter-percent {
+  background: rgba(0, 97, 227, 1);
+}
+.vmta-percent {
+  background: rgba(250, 180, 31, 1);
+}
+td.voter-percent {
+  background: rgba(0, 97, 227, 0.1);
+}
+td.vmta-percent {
+  background: rgba(250, 180, 31, 0.1);
 }
 table {
   border-collapse: collapse;
@@ -126,7 +144,7 @@ table {
 }
 td,
 th {
-  border: 1px solid rgba(23, 110, 222, 0.75);
+  border: 1px solid rgba(150, 150, 150, 0.75);
   border-top: none;
   padding: 10px;
   min-width: 200px;
@@ -137,15 +155,15 @@ th {
 thead th {
   position: -webkit-sticky;
   position: sticky;
-  top: -1px;
+  top: 0;
   z-index: 2;
-  background: rgb(23, 110, 222, 1);
+  background: rgb(150, 150, 150, 1);
   border-top: none;
   border-bottom: none;
   color: #fff;
 }
 thead th:first-child {
-  left: -1px;
+  left: 0;
   z-index: 3;
   border-left: none;
   text-align: left;
@@ -153,12 +171,20 @@ thead th:first-child {
 tbody tr > :first-child {
   position: -webkit-sticky;
   position: sticky;
-  background: #f7f7f7;
+  background: #eee;
   left: 0;
   border-left: none;
   text-align: left;
 }
 tbody tr:last-child td {
   border-bottom: none;
+}
+table tr th:first-child,
+table tr td:first-child {
+  border-left: none;
+}
+table tr th:last-child,
+table tr td:last-child {
+  border-right: none;
 }
 </style>
